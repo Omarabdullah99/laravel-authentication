@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -29,6 +30,9 @@ class RegisterController extends Controller
             'password' => $request->input('password'),
 
         ]);
+
+        //authenticate
+        Auth::login($user, true);
 
         // redirect to dashboard
         return redirect()->route('dashboard');

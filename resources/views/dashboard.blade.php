@@ -32,7 +32,7 @@
                     <div class="text-sm text-gray-500 underline">User ID: {{ auth()->user()->id }}</div>
 
                 </div>
-                <form method="POST" action="">
+                <form method="POST" action="{{route('logout')}}">
                     @csrf
                     <button type="submit"
                         class="inline-flex items-center rounded-md border border-transparent bg-gray-900 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
