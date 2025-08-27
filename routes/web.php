@@ -15,12 +15,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard',function(){
     return view('dashboard');
-})->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
 Route::get('/register', [RegisterController::class, 'show'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
-Route::get('/login', [LoginController::class, 'show']);
+Route::get('/login', [LoginController::class, 'show'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 
 Route::middleware('auth')->group(function () {
